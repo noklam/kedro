@@ -4,6 +4,12 @@ parameters:
   release_kedro:
     type: boolean
     default: false
+  run-nightly:
+    type: boolean
+    default: false
+  run-hourly:
+    type: boolean
+    defualt: false
 
 setup: true
 
