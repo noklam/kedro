@@ -84,10 +84,10 @@ class SequentialRunner(AbstractRunner):
             # decrement load counts and release any data sets we've finished with
             for dataset in node.inputs:
                 load_counts[dataset] -= 1
-                if load_counts[dataset] < 1 and dataset not in pipeline.inputs():
+                if load_counts[dataset] < 1:
                     catalog.release(dataset)
             for dataset in node.outputs:
-                if load_counts[dataset] < 1 and dataset not in pipeline.outputs():
+                if load_counts[dataset] < 1:
                     catalog.release(dataset)
 
             self._logger.info(
